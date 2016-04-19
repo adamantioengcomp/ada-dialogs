@@ -1,6 +1,6 @@
 var dialogs = angular.module('ada-dialogs', []);
 
-dialogs.provider('dialogs', function(){
+dialogs.provider('dialogs', [function(){
 	var self = this;
 
 	var dialogTitles = {
@@ -101,4 +101,4 @@ dialogs.provider('dialogs', function(){
 
 	}];
 
-})
+}])
