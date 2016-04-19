@@ -1,0 +1,14 @@
+{
+    "name": "ada-dialogs",
+    "version": "1.0.0",
+    "main": "ada-dialogs.js",
+    "ignore":[
+      
+    ],
+    "dependencies": {
+       "jquery":  "*",
+	   "angular": "*"
+    },
+    "devDependencies": {     
+    }
+}
