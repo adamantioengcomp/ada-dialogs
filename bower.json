@@ -1,6 +1,6 @@
 {
     "name": "ada-dialogs",
-    "version": "v1.0.000",
+    "version": "v1.1.000",
     "main": "ada-dialogs.min.js",
     "ignore":[
       

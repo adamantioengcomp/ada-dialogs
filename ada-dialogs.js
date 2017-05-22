@@ -92,7 +92,41 @@ dialogs.provider('dialogs', [function(){
 				}else{
 					if(confirm(msg)){
 						deferred.resolve();
+					}else{
+						deferred.reject();
+					}
+					return deferred.promise;
+				}
+			},
+
+			prompt : function (msg,btOkName,btCancelName){
+				var deferred = $q.defer();
+
+				if(navigator.notification){
+					var mCallback = function(results){					
+						if(results.buttonIndex===1){
+							deferred.resolve(results.input1);
+						}else{
+							deferred.reject();
+						}					
 					};
+
+					if(!btOkName){
+						btOkName = 'OK';
+					}
+					if(!btCancelName){
+						btCancelName = 'Cancela';
+					}
+					navigator.notification.prompt(msg,mCallback, resolveTranslation(dialogTitles.confirm) ,[btOkName,btCancelName]);	
+
+					return deferred.promise;
+				}else{
+					var data = prompt(msg);
+					if(data){
+						deferred.resolve(msg);
+					}else{
+						deferred.reject();
+					}
 					return deferred.promise;
 				}
 			}
